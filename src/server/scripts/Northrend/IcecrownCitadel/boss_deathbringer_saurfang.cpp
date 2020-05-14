@@ -1333,6 +1333,7 @@ class achievement_ive_gone_and_made_a_mess : public AchievementCriteriaScript
     public:
         achievement_ive_gone_and_made_a_mess() : AchievementCriteriaScript("achievement_ive_gone_and_made_a_mess") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*source*/, Unit* target)
         {
             if (target)

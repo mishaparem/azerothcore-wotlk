@@ -1054,6 +1054,7 @@ class achievement_xt002_nerf_engineering : public AchievementCriteriaScript
     public:
         achievement_xt002_nerf_engineering() : AchievementCriteriaScript("achievement_xt002_nerf_engineering") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             if (target)
@@ -1070,6 +1071,7 @@ class achievement_xt002_nerf_gravity_bombs : public AchievementCriteriaScript
     public:
         achievement_xt002_nerf_gravity_bombs() : AchievementCriteriaScript("achievement_xt002_nerf_gravity_bombs") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             if (target)

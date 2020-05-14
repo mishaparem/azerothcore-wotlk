@@ -756,7 +756,7 @@ static Location AllianceSpawn[] =
     { 1680.86f, 596.73f, -6.37f, 0  },
     { 1676.41f, 558.28f, -18.46f, 0 }, // Blightworm
     { 1685.16f, 620.41f, 5.74f, 0   }, // soldiers
-    { 0.0f, 0.0f, 0.0f, 0           }, // trash wave 
+    { 0.0f, 0.0f, 0.0f, 0           }, // trash wave
     { 1500.03f, 409.59f, -62.18f, 0 }, // guardians
     { 1444.25f, 453.86f, -70.48f, 0 }, // dreadlords
     { 1432.43f, 403.20f, -85.26f, 0 }, // putress
@@ -898,7 +898,7 @@ static Location ThrallSpawn[] =
     { 1591.325f, 397.874f, -4.130f, 6.191f    },
     // NPC_KHANOK - Inner Sunktum Middle
     { 1573.400f, 398.450f, -65.862f, 5.618f   },
-    // NPC_WARSONG_BATTLEGUARD - NPC_KHANOK WinSpawn 
+    // NPC_WARSONG_BATTLEGUARD - NPC_KHANOK WinSpawn
     { 1590.502f, 375.876f, -62.177f, 3.237f   },
     // Valimathras Room Preparation
     // Stones
@@ -938,12 +938,12 @@ public:
     bool OnGossipSelect(Player* player, Creature* creature, uint32 /*sender*/, uint32 action) override
     {
         ClearGossipMenuFor(player);
-        
+
         switch (action)
         {
             case GOSSIP_ACTION_INFO_DEF + 1:
                 CloseGossipMenuFor(player);
-                
+
                 if (auto ai = CAST_AI(npc_varian_wrynn::npc_varian_wrynnAI, creature->AI()))
                 {
                     ai->Start(true, true, player->GetGUID());
@@ -954,7 +954,7 @@ public:
                     ai->SetDespawnAtEnd(false);
                     ai->SetDespawnAtFar(false);
                 }
-                
+
                 break;
         }
 
@@ -2053,7 +2053,10 @@ public:
                     case EVENT_AGGRO_JAINA:
                         if (me->GetVictim())
                             if (Creature* jaina = ObjectAccessor::GetCreature(*me, jainaGUID))
-                                jaina->AI()->AttackStart(me->GetVictim()); DoCast(me, SPELL_THUNDER);
+                            {
+                                jaina->AI()->AttackStart(me->GetVictim());
+                                DoCast(me, SPELL_THUNDER);
+                            }
                         _events.ScheduleEvent(EVENT_AGGRO_JAINA, 2 * IN_MILLISECONDS);
                         break;
                     case EVENT_WRYNN_BUFF:
@@ -2270,13 +2273,13 @@ public:
     bool OnGossipSelect(Player* player, Creature* creature, uint32 /*sender*/, uint32 action) override
     {
         ClearGossipMenuFor(player);
-        
+
         switch (action)
         {
             case GOSSIP_ACTION_INFO_DEF + 1:
             {
                 CloseGossipMenuFor(player);
-                
+
                 if (auto thrall_ai = CAST_AI(npc_thrall_bfu::npc_thrall_bfuAI, creature->AI()))
                 {
                     if (Creature* sylvannas = GetClosestCreatureWithEntry(creature, NPC_SYLVANAS, 50.0f))
@@ -2729,7 +2732,7 @@ public:
                     if (Unit* temp = me->SummonCreature(NPC_VARIMATHRAS_PORTAL, ThrallSpawn[64].x, ThrallSpawn[64].y, ThrallSpawn[64].z, ThrallSpawn[64].o, TEMPSUMMON_TIMED_OR_DEAD_DESPAWN, 900 * IN_MILLISECONDS))
                         ValimathrasPortalGUID = temp->GetGUID();
                     break;
-                    // NPC_KHANOK - Inner Sunktum Spawn Left                        
+                    // NPC_KHANOK - Inner Sunktum Spawn Left
                 case 14:
                     for (uint8 i = 0; i < 4; ++i)
                     {
@@ -3454,7 +3457,7 @@ public:
                             JumpToNextStep(8 * IN_MILLISECONDS);
                             break;
                         case 94:
-                            // Spawn Boss 2 KHANOK  
+                            // Spawn Boss 2 KHANOK
                             SpawnWave(17);
                             JumpToNextStep(10 * IN_MILLISECONDS);
                             break;

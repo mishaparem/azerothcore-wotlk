@@ -204,6 +204,7 @@ class achievement_better_off_dred : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*player*/, Unit* target)
         {
             if (!target)

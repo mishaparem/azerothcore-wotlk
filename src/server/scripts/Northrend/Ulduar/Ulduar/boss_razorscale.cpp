@@ -1094,6 +1094,7 @@ class achievement_quick_shave : public AchievementCriteriaScript
     public:
         achievement_quick_shave() : AchievementCriteriaScript("achievement_quick_shave") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             return target && target->GetTypeId() == TYPEID_UNIT && target->GetEntry() == NPC_RAZORSCALE && target->ToCreature()->AI()->GetData(1);
@@ -1105,6 +1106,7 @@ class achievement_iron_dwarf_medium_rare : public AchievementCriteriaScript
     public:
         achievement_iron_dwarf_medium_rare() : AchievementCriteriaScript("achievement_iron_dwarf_medium_rare") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             return target && target->GetEntry() == NPC_RAZORSCALE;

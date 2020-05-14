@@ -1046,6 +1046,7 @@ class achievement_wg_didnt_stand_a_chance : public AchievementCriteriaScript
 public:
     achievement_wg_didnt_stand_a_chance() : AchievementCriteriaScript("achievement_wg_didnt_stand_a_chance") { }
 
+    using AchievementCriteriaScript::OnCheck;
     bool OnCheck(Player* source, Unit* target)
     {
         if (!target)
@@ -1070,6 +1071,7 @@ class achievement_wg_vehicular_gnomeslaughter : public AchievementCriteriaScript
 public:
     achievement_wg_vehicular_gnomeslaughter() : AchievementCriteriaScript("achievement_wg_vehicular_gnomeslaughter") { }
 
+    using AchievementCriteriaScript::OnCheck;
     bool OnCheck(Player* source, Unit* target)
     {
         if (!target)
@@ -1090,6 +1092,7 @@ class achievement_wg_within_our_grasp : public AchievementCriteriaScript
 public:
     achievement_wg_within_our_grasp() : AchievementCriteriaScript("achievement_wg_within_our_grasp") { }
 
+    using AchievementCriteriaScript::OnCheck;
     bool OnCheck(Player*  /*source*/, Unit*  /*target*/)
     {
         Battlefield* wintergrasp = sBattlefieldMgr->GetBattlefieldByBattleId(BATTLEFIELD_BATTLEID_WG);

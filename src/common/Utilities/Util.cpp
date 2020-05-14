@@ -224,20 +224,33 @@ uint32 TimeStringToSecs(const std::string& timestring)
     return secs;
 }
 
-std::string TimeToTimestampStr(time_t t)
-{
-    tm aTm;
-    ACE_OS::localtime_r(&t, &aTm);
-    //       YYYY   year
-    //       MM     month (2 digits 01-12)
-    //       DD     day (2 digits 01-31)
-    //       HH     hour (2 digits 00-23)
-    //       MM     minutes (2 digits 00-59)
-    //       SS     seconds (2 digits 00-59)
-    char buf[20];
-    snprintf(buf, 20, "%04d-%02d-%02d_%02d-%02d-%02d", aTm.tm_year+1900, aTm.tm_mon+1, aTm.tm_mday, aTm.tm_hour, aTm.tm_min, aTm.tm_sec);
-    return std::string(buf);
-}
+  std::string TimeToTimestampStr(time_t t)
+  {
+      tm aTm;
+      ACE_OS::localtime_r(&t, &aTm);
+      //       YYYY   year
+      //       MM     month (2 digits 01-12)
+      //       DD     day (2 digits 01-31)
+      //       HH     hour (2 digits 00-23)
+      //       MM     minutes (2 digits 00-59)
+      //       SS     seconds (2 digits 00-59)
+      char buf[20];
+      snprintf(buf, 20, "%04u-%02u-%02u_%02u-%02u-%02u",
+                (aTm.tm_year+1900)%10000u,
+                (aTm.tm_mon+1)%13u,
+                aTm.tm_mday%32u,
+                aTm.tm_hour%24u,
+                aTm.tm_min%60u,
+                aTm.tm_sec%60u);
+      // snprintf(buf, 20, "%04u-%02u-%02u_%02u-%02u-%02u",
+      //           uint32_t(aTm.tm_year+1900%10000),
+      //           uint32_t(aTm.tm_mon+1%13),
+      //           uint32_t(aTm.tm_mday%32),
+      //           uint32_t(aTm.tm_hour%24),
+      //           uint32_t(aTm.tm_min%60),
+      //           uint32_t(aTm.tm_sec%60));
+      return std::string(buf);
+  }
 
 /// Check if the string is a valid ip address representation
 bool IsIPAddress(char const* ipaddress)

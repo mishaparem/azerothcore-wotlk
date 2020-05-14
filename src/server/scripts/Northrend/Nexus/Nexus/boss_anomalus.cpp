@@ -172,6 +172,7 @@ class achievement_chaos_theory : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*player*/, Unit* target)
         {
             if (!target)

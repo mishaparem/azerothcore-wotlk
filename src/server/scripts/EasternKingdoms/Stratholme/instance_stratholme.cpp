@@ -8,14 +8,14 @@
 #include "stratholme.h"
 #include "Player.h"
 
-const Position BlackGuardPos[10] = 
+const Position BlackGuardPos[10] =
 {
     {4032.73f+0.0f, -3378.26f+0.0f, 119.76f, 4.67f},
     {4032.73f+2.0f, -3378.26f+2.0f, 119.76f, 4.67f},
     {4032.73f+2.0f, -3378.26f-2.0f, 119.76f, 4.67f},
     {4032.73f-2.0f, -3378.26f+2.0f, 119.76f, 4.67f},
     {4032.73f-2.0f, -3378.26f-2.0f, 119.76f, 4.67f},
-    
+
     {4032.73f+0.0f, -3407.38f+0.0f, 115.56f, 0.0f},
     {4032.73f+2.0f, -3407.38f+2.0f, 115.56f, 0.0f},
     {4032.73f+2.0f, -3407.38f-2.0f, 115.56f, 0.0f},
@@ -30,7 +30,7 @@ static const uint32 aPlaguedCritters[] =
 };
 
 // Positions of the two Gate Traps
-static const Position aGateTrap[] =                    
+static const Position aGateTrap[] =
 {
     {3612.29f, -3335.39f, 124.077f, 3.14159f},  // Scarlet side
     {3919.88f, -3547.34f, 134.269f, 2.94961f}   // Undead side
@@ -291,7 +291,7 @@ class instance_stratholme : public InstanceMapScript
                                 ziggurat->SetGoState(GO_STATE_ACTIVE);
 
                         CheckZiggurats();
-                        break;                      
+                        break;
                     }
                     case TYPE_ZIGGURAT3:
                     {
@@ -392,7 +392,7 @@ class instance_stratholme : public InstanceMapScript
                                 // Check if timer was not already set by another player/pet a few milliseconds before
                                 if (_gateTrapsCooldown[i])
                                     return;
-                               
+
                                 _gateTrapsCooldown[i] = true;
 
                                 // close the gates
@@ -431,11 +431,13 @@ class instance_stratholme : public InstanceMapScript
                 {
                     case EVENT_GATE1_TRAP:
                         gate = 0;
+                        [[fallthrough]];
                     case EVENT_GATE2_TRAP:
                         _gateTrapsCooldown[gate] = false;
                         break;
                     case EVENT_GATE1_DELAY:
                         gate = 0;
+                        [[fallthrough]];
                     case EVENT_GATE2_DELAY:
                         if (_trapGatesGUIDs[2 * gate])
                             DoUseDoorOrButton(_trapGatesGUIDs[2 * gate]);
@@ -444,6 +446,7 @@ class instance_stratholme : public InstanceMapScript
                         break;
                     case EVENT_GATE1_CRITTER_DELAY:
                         gate = 0;
+                        [[fallthrough]];
                     case EVENT_GATE2_CRITTER_DELAY:
                         if (_trappedPlayerGUID)
                         {
@@ -519,7 +522,7 @@ class instance_stratholme : public InstanceMapScript
                                         ProcessSlaughterEvent();
                                         return;
                                     }
-                            
+
                         events.ScheduleEvent(EVENT_FORCE_SLAUGHTER_EVENT, 3000);
                         break;
                     }

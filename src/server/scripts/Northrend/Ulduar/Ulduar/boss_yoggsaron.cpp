@@ -2879,6 +2879,7 @@ class achievement_yogg_saron_drive_me_crazy : public AchievementCriteriaScript
     public:
         achievement_yogg_saron_drive_me_crazy() : AchievementCriteriaScript("achievement_yogg_saron_drive_me_crazy") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             return target && target->GetAI()->GetData(DATA_GET_DRIVE_ME_CRAZY); // target = Yogg-Saron
@@ -2893,6 +2894,7 @@ class achievement_yogg_saron_darkness : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit*  /*target*/ /*Yogg-Saron*/)
         {
             if (player->GetInstanceScript())
@@ -2914,6 +2916,7 @@ class achievement_yogg_saron_he_waits_dreaming : public AchievementCriteriaScrip
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit*  /*target*/ /*Yogg-Saron*/)
         {
             if (player->GetInstanceScript())
@@ -2933,6 +2936,7 @@ class achievement_yogg_saron_kiss_and_make_up : public AchievementCriteriaScript
     public:
         achievement_yogg_saron_kiss_and_make_up() : AchievementCriteriaScript("achievement_yogg_saron_kiss_and_make_up") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target /*Sara*/)
         {
             return target && target->GetEntry() == NPC_SARA && target->GetAI() && target->GetAI()->GetData(DATA_GET_SARA_PHASE);

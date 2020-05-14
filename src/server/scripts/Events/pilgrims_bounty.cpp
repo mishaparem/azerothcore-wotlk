@@ -663,6 +663,7 @@ class achievement_pb_pilgrims_peril : public AchievementCriteriaScript
     public:
         achievement_pb_pilgrims_peril() : AchievementCriteriaScript("achievement_pb_pilgrims_peril") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             if (source->HasItemOrGemWithIdEquipped(ITEM_PILGRIMS_DRESS, 1) || source->HasItemOrGemWithIdEquipped(ITEM_PILGRIMS_ROBE, 1) || source->HasItemOrGemWithIdEquipped(ITEM_PILGRIMS_ATTIRE, 1))
@@ -677,6 +678,7 @@ class achievement_pb_terokkar_turkey_time : public AchievementCriteriaScript
     public:
         achievement_pb_terokkar_turkey_time() : AchievementCriteriaScript("achievement_pb_terokkar_turkey_time") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             if (source->HasItemOrGemWithIdEquipped(ITEM_PILGRIMS_HAT, 1) && (source->HasItemOrGemWithIdEquipped(ITEM_PILGRIMS_DRESS, 1) || source->HasItemOrGemWithIdEquipped(ITEM_PILGRIMS_ROBE, 1) || source->HasItemOrGemWithIdEquipped(ITEM_PILGRIMS_ATTIRE, 1)))

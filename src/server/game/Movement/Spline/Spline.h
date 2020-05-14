@@ -72,6 +72,9 @@ protected:
     static InitMethtod initializers[ModesEnd];
 
     void UninitializedSpline() const { ABORT();}
+    void UninitializedSpline(int, float, Vector3&) const { ABORT();}
+    float UninitializedSpline(int) const { ABORT(); return 0.0f;}
+    void UninitializedSpline(const Vector3*, int, bool, int) { ABORT();}
 
 public:
 

@@ -1819,6 +1819,7 @@ class achievement_thorim_stand_in_the_lightning : public AchievementCriteriaScri
     public:
         achievement_thorim_stand_in_the_lightning() : AchievementCriteriaScript("achievement_thorim_stand_in_the_lightning") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit*)
         {
             if (InstanceScript* instance = player->GetInstanceScript())
@@ -1834,6 +1835,7 @@ class achievement_thorim_lose_your_illusion : public AchievementCriteriaScript
     public:
         achievement_thorim_lose_your_illusion() : AchievementCriteriaScript("achievement_thorim_lose_your_illusion") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit*)
         {
             if (InstanceScript* instance = player->GetInstanceScript())

@@ -8,7 +8,7 @@
 #include "old_hillsbrad.h"
 #include "Player.h"
 
-const Position instancePositions[INSTANCE_POSITIONS_COUNT] = 
+const Position instancePositions[INSTANCE_POSITIONS_COUNT] =
 {
     {2188.18f, 228.90f, 53.025f, 1.77f},    // Orcs Gather Point 1
     {2103.23f, 93.55f, 53.096f, 3.78f},     // Orcs Gather Point 2
@@ -229,7 +229,7 @@ public:
                         if (Creature* orc = instance->GetCreature(*itr))
                             if (roll_chance_i(25))
                                 orc->HandleEmoteCommand(EMOTE_ONESHOT_CHEER);
-                    
+
                     SetData(DATA_ESCORT_PROGRESS, ENCOUNTER_PROGRESS_BARRELS);
                     DoUpdateWorldState(WORLD_STATE_BARRELS_PLANTED, 0);
                     break;
@@ -239,6 +239,7 @@ public:
                     instance->LoadGrid(instancePositions[2].GetPositionX(), instancePositions[2].GetPositionY());
                     if (Creature* drake = instance->SummonCreature(NPC_LIEUTENANT_DRAKE, instancePositions[2]))
                         drake->AI()->Talk(0);
+                    [[fallthrough]];
                 }
                 case EVENT_THRALL_REPOSITION:
                 {

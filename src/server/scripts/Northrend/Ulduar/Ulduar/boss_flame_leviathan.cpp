@@ -2337,6 +2337,7 @@ class achievement_flame_leviathan_towers : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target /*Flame Leviathan*/) override
         {
             return target && _towerCount <= target->GetAI()->GetData(DATA_GET_TOWER_COUNT);
@@ -2351,6 +2352,7 @@ class achievement_flame_leviathan_shutout : public AchievementCriteriaScript
     public:
         achievement_flame_leviathan_shutout() : AchievementCriteriaScript("achievement_flame_leviathan_shutout") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target /*Flame Leviathan*/) override
         {
             if (target)
@@ -2368,6 +2370,7 @@ class achievement_flame_leviathan_garage : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit*) override
         {
             if (Vehicle* vehicle = player->GetVehicle())
@@ -2386,6 +2389,7 @@ class achievement_flame_leviathan_unbroken : public AchievementCriteriaScript
     public:
         achievement_flame_leviathan_unbroken() : AchievementCriteriaScript("achievement_flame_leviathan_unbroken") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit*) override
         {
             if (player->GetInstanceScript())

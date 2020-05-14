@@ -67,7 +67,7 @@ public:
         uint64 PlayerGUID;
         uint64 CannonGUID;
         uint8 count;
-        
+
         void Reset() override
         {
             Initialize();
@@ -111,7 +111,7 @@ public:
                             player->KilledMonsterCredit(NPC_NORTH_GATE_CREDIT, TRIGGERED_NONE);
                         // complete quest part
                         if (Creature* bunny = GetClosestCreatureWithEntry(me, NPC_EXPLOSION_BUNNY, 200.0f))
-                            bunny->CastSpell(nullptr, SPELL_EXPLOSION, TRIGGERED_NONE);  
+                            bunny->CastSpell(nullptr, SPELL_EXPLOSION, TRIGGERED_NONE);
                         if (Creature* cannon = ObjectAccessor::GetCreature(*me, CannonGUID))
                             cannon->DespawnOrUnsummon(5000);
                     }
@@ -155,9 +155,11 @@ public:
                     case EVENT_PARTY_TIMER:
                         if (roll_chance_i(20))
                             me->SummonCreature(NPC_HOUND, 0, 0, 0, 0, TEMPSUMMON_TIMED_DESPAWN_OUT_OF_COMBAT, 10000);
-                        else 
+                        else
+                        {
                             me->SummonCreature(NPC_FEL_IMP, 0, 0, 0, 0, TEMPSUMMON_TIMED_DESPAWN_OUT_OF_COMBAT, 10000);
                             events.ScheduleEvent(EVENT_PARTY_TIMER, 3000);
+                        }
                         break;
                 }
             }
@@ -188,14 +190,14 @@ public:
         {
             if (me->IsNonMeleeSpellCast(false))
                 return;
-            
+
             if (Creature* Target = GetClosestCreatureWithEntry(me, NPC_DEATHS_DOOR_FEL_CANNON_TARGET_BUNNY, 200.0f))
             {
                 me->SetFacingToObject(Target);
                 me->TauntFadeOut(Target);
                 me->CombatStop(); // force
             }
-            
+
             Reset();
         }
     };
@@ -426,7 +428,7 @@ enum Daranelle
     SAY_SPELL_INFLUENCE       = 0,
     SPELL_LASHHAN_CHANNEL     = 36904,
     SPELL_DISPELLING_ANALYSIS = 37028,
-	
+
     NPC_KALIRI_TOTEM          = 21468
 };
 

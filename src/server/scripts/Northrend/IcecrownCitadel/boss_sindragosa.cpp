@@ -1364,6 +1364,7 @@ class achievement_all_you_can_eat : public AchievementCriteriaScript
     public:
         achievement_all_you_can_eat() : AchievementCriteriaScript("achievement_all_you_can_eat") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*source*/, Unit* target)
         {
             if (!target || target->GetEntry() != NPC_SINDRAGOSA)

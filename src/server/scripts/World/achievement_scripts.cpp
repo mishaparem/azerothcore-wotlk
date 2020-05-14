@@ -20,6 +20,7 @@ class achievement_resilient_victory : public AchievementCriteriaScript
     public:
         achievement_resilient_victory() : AchievementCriteriaScript("achievement_resilient_victory") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             Battleground* bg = source->GetBattleground();
@@ -32,6 +33,7 @@ class achievement_bg_control_all_nodes : public AchievementCriteriaScript
     public:
         achievement_bg_control_all_nodes() : AchievementCriteriaScript("achievement_bg_control_all_nodes") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             Battleground* bg = source->GetBattleground();
@@ -44,6 +46,7 @@ class achievement_save_the_day : public AchievementCriteriaScript
     public:
         achievement_save_the_day() : AchievementCriteriaScript("achievement_save_the_day") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* target)
         {
             if (!target)
@@ -63,6 +66,7 @@ class achievement_bg_ic_resource_glut : public AchievementCriteriaScript
     public:
         achievement_bg_ic_resource_glut() : AchievementCriteriaScript("achievement_bg_ic_resource_glut") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             Battleground* bg = source->GetBattleground();
@@ -75,6 +79,7 @@ class achievement_bg_ic_glaive_grave : public AchievementCriteriaScript
     public:
         achievement_bg_ic_glaive_grave() : AchievementCriteriaScript("achievement_bg_ic_glaive_grave") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             if (Creature* vehicle = source->GetVehicleCreatureBase())
@@ -89,6 +94,7 @@ class achievement_bg_ic_mowed_down : public AchievementCriteriaScript
     public:
         achievement_bg_ic_mowed_down() : AchievementCriteriaScript("achievement_bg_ic_mowed_down") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             if (Creature* vehicle = source->GetVehicleCreatureBase())
@@ -103,6 +109,7 @@ class achievement_bg_sa_artillery : public AchievementCriteriaScript
     public:
         achievement_bg_sa_artillery() : AchievementCriteriaScript("achievement_bg_sa_artillery") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             if (Creature* vehicle = source->GetVehicleCreatureBase())
@@ -120,6 +127,7 @@ class achievement_arena_by_type : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             return source->InArena() && source->GetBattleground()->GetArenaType() == _arenaType;
@@ -134,6 +142,7 @@ class achievement_sickly_gazelle : public AchievementCriteriaScript
 public:
     achievement_sickly_gazelle() : AchievementCriteriaScript("achievement_sickly_gazelle") { }
 
+    using AchievementCriteriaScript::OnCheck;
     bool OnCheck(Player* /*source*/, Unit* target)
     {
         if (!target)
@@ -152,6 +161,7 @@ class achievement_everything_counts : public AchievementCriteriaScript
     public:
         achievement_everything_counts() : AchievementCriteriaScript("achievement_everything_counts") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             Battleground* bg = source->GetBattleground();
@@ -164,6 +174,7 @@ class achievement_bg_av_perfection : public AchievementCriteriaScript
     public:
         achievement_bg_av_perfection() : AchievementCriteriaScript("achievement_bg_av_perfection") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             Battleground* bg = source->GetBattleground();
@@ -176,6 +187,7 @@ class achievement_sa_defense_of_the_ancients : public AchievementCriteriaScript
     public:
         achievement_sa_defense_of_the_ancients() : AchievementCriteriaScript("achievement_sa_defense_of_the_ancients") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             Battleground* bg = source->GetBattleground();
@@ -198,6 +210,7 @@ class achievement_tilted : public AchievementCriteriaScript
     public:
         achievement_tilted() : AchievementCriteriaScript("achievement_tilted") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit* /*target*/)
         {
             if (!player)
@@ -220,6 +233,7 @@ class achievement_not_even_a_scratch : public AchievementCriteriaScript
     public:
         achievement_not_even_a_scratch() : AchievementCriteriaScript("achievement_not_even_a_scratch") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* source, Unit* /*target*/)
         {
             if (!source)
@@ -235,6 +249,7 @@ class achievement_killed_exp_or_honor_target : public AchievementCriteriaScript
     public:
         achievement_killed_exp_or_honor_target() : AchievementCriteriaScript("achievement_killed_exp_or_honor_target") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit* target)
         {
             return target && player->isHonorOrXPTarget(target);

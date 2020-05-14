@@ -948,6 +948,7 @@ class achievement_assembly_of_iron : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target) override
         {
             return target && target->GetAuraCount(SPELL_SUPERCHARGE) >= 2 && (!_targetEntry || target->GetEntry() == _targetEntry);
@@ -962,6 +963,7 @@ class achievement_cant_do_that_while_stunned : public AchievementCriteriaScript
     public:
         achievement_cant_do_that_while_stunned() : AchievementCriteriaScript("achievement_cant_do_that_while_stunned") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target) override
         {
             bool allow = target && target->GetAuraCount(SPELL_SUPERCHARGE) >= 2;

@@ -984,6 +984,7 @@ class achievement_once_bitten_twice_shy : public AchievementCriteriaScript
 public:
     achievement_once_bitten_twice_shy(const char* name, uint8 spawnMode, bool wasVampire) : AchievementCriteriaScript(name), _spawnMode(spawnMode), _wasVampire(wasVampire) { }
 
+    using AchievementCriteriaScript::OnCheck;
     bool OnCheck(Player* source, Unit* target)
     {
         if (!target || !target->FindMap())

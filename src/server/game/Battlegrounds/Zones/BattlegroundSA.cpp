@@ -343,7 +343,7 @@ void BattlegroundSA::PostUpdateImpl(uint32 diff)
             DemolisherStartState(false);
             Status = BG_SA_ROUND_TWO;
             StartTimedAchievement(ACHIEVEMENT_TIMED_TYPE_EVENT, (Attackers == TEAM_ALLIANCE)?23748:21702);
-            
+
             // status was set to STATUS_WAIT_JOIN manually for Preparation, set it back now
             SetStatus(STATUS_IN_PROGRESS);
             for (BattlegroundPlayerMap::const_iterator itr = GetPlayers().begin(); itr != GetPlayers().end(); ++itr)
@@ -570,7 +570,7 @@ void BattlegroundSA::TeleportToEntrancePosition(Player* player)
 
 void BattlegroundSA::DefendersPortalTeleport(GameObject* portal, Player* plr)
 {
-    if (plr->GetTeamId() == Attackers) 
+    if (plr->GetTeamId() == Attackers)
         return;
 
     uint32 portal_num = 0;
@@ -704,7 +704,7 @@ void BattlegroundSA::DemolisherStartState(bool start)
 
     // xinef: enable first gates damaging at start
     if (!start)
-    {    
+    {
         if (GameObject* go = GetBGObject(BG_SA_GREEN_GATE))
             go->SetDestructibleBuildingModifyState(true);
         if (GameObject* go = GetBGObject(BG_SA_BLUE_GATE))
@@ -776,7 +776,7 @@ GraveyardStruct const* BattlegroundSA::GetClosestGraveyard(Player* player)
             continue;
 
         GraveyardStruct const* ret = sGraveyard->GetGraveyard(BG_SA_GYEntries[i]);
-        
+
         // if on beach
         if (i == BG_SA_BEACH_GY)
         {
@@ -814,10 +814,12 @@ bool BattlegroundSA::CanInteractWithObject(uint32 objectId)
         case BG_SA_TITAN_RELIC:
             if (GateStatus[BG_SA_ANCIENT_GATE] != BG_SA_GATE_DESTROYED || GateStatus[BG_SA_YELLOW_GATE] != BG_SA_GATE_DESTROYED)
                 return false;
+            [[fallthrough]];
             // no break
         case BG_SA_CENTRAL_FLAG:
             if (GateStatus[BG_SA_RED_GATE] != BG_SA_GATE_DESTROYED && GateStatus[BG_SA_PURPLE_GATE] != BG_SA_GATE_DESTROYED)
                 return false;
+            [[fallthrough]];
             // no break
         case BG_SA_LEFT_FLAG:
         case BG_SA_RIGHT_FLAG:
@@ -902,7 +904,7 @@ void BattlegroundSA::CaptureGraveyard(BG_SA_Graveyards i, Player *Source)
     }
 
     DelCreature(BG_SA_MAXNPC + i);
-    
+
     GraveyardStruct const* sg = sGraveyard->GetGraveyard(BG_SA_GYEntries[i]);
     if (!sg)
     {

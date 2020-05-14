@@ -186,6 +186,7 @@ class achievement_intense_cold : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* player, Unit* target)
         {
             if (!target)

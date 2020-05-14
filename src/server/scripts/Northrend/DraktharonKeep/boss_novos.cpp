@@ -54,12 +54,11 @@ enum Misc
     ROOM_STAIRS = 2
 };
 
-std::unordered_map<uint32, std::tuple <uint32, Position>> const npcSummon =
-{
+std::unordered_map<uint32, std::tuple <uint32, Position>> const npcSummon({
     { ROOM_RIGHT,   { NPC_SUMMON_CRYSTAL_HANDLER_TARGET,    { -341.31f, -724.40f, 28.57f, 0.0f } } },
     { ROOM_LEFT,    { NPC_SUMMON_CRYSTAL_HANDLER_TARGET,    { -408.87f, -730.21f, 28.58f, 0.0f } } },
     { ROOM_STAIRS,  { NPC_CRYSTAL_CHANNEL_TARGET,           { -378.40f, -813.13f, 59.74f, 0.0f } } },
-};
+});
 
 class boss_novos : public CreatureScript
 {
@@ -339,6 +338,7 @@ class achievement_oh_novos : public AchievementCriteriaScript
     public:
         achievement_oh_novos() : AchievementCriteriaScript("achievement_oh_novos") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*player*/, Unit* target) 
         {
             return target && target->GetAI()->GetData(target->GetEntry());

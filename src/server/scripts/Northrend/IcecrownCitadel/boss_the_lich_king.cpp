@@ -3731,6 +3731,7 @@ class achievement_been_waiting_long_time : public AchievementCriteriaScript
     public:
         achievement_been_waiting_long_time() : AchievementCriteriaScript("achievement_been_waiting_long_time") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*source*/, Unit* target)
         {
             if (!target)
@@ -3745,6 +3746,7 @@ class achievement_neck_deep_in_vile : public AchievementCriteriaScript
     public:
         achievement_neck_deep_in_vile() : AchievementCriteriaScript("achievement_neck_deep_in_vile") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*source*/, Unit* target)
         {
             if (!target)

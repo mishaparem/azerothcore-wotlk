@@ -464,6 +464,7 @@ class achievement_auriaya_crazy_cat_lady : public AchievementCriteriaScript
     public:
         achievement_auriaya_crazy_cat_lady() : AchievementCriteriaScript("achievement_auriaya_crazy_cat_lady") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             if (target)
@@ -480,6 +481,7 @@ class achievement_auriaya_nine_lives : public AchievementCriteriaScript
     public:
         achievement_auriaya_nine_lives() : AchievementCriteriaScript("achievement_auriaya_nine_lives") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             if (target)

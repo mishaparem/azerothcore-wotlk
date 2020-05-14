@@ -223,6 +223,7 @@ class achievement_watch_him_die : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*player*/, Unit* target)
         {
             if (!target)

@@ -817,6 +817,7 @@ class achievement_kologarn_looks_could_kill : public AchievementCriteriaScript
     public:
         achievement_kologarn_looks_could_kill() : AchievementCriteriaScript("achievement_kologarn_looks_could_kill") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             if (target)
@@ -833,6 +834,7 @@ class achievement_kologarn_rubble_and_roll : public AchievementCriteriaScript
     public:
         achievement_kologarn_rubble_and_roll() : AchievementCriteriaScript("achievement_kologarn_rubble_and_roll") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             if (target)
@@ -849,6 +851,7 @@ class achievement_kologarn_with_open_arms : public AchievementCriteriaScript
     public:
         achievement_kologarn_with_open_arms() : AchievementCriteriaScript("achievement_kologarn_with_open_arms") {}
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*  /*player*/, Unit* target)
         {
             if (target)

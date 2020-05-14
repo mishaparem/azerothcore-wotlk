@@ -253,6 +253,7 @@ class achievement_consumption_junction : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*player*/, Unit* target)
         {
             if (!target)

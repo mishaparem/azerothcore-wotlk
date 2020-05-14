@@ -1489,6 +1489,7 @@ class achievement_portal_jockey : public AchievementCriteriaScript
     public:
         achievement_portal_jockey() : AchievementCriteriaScript("achievement_portal_jockey") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*source*/, Unit* target)
         {
             return target && target->GetEntry() == NPC_VALITHRIA_DREAMWALKER && !target->GetAI()->GetData(MISSED_PORTALS);

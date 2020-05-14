@@ -187,7 +187,7 @@ public:
                 break;
         }
 
-        BanReturn banReturn;
+        BanReturn banReturn = BAN_SYNTAX_ERROR;
 
         switch (mode)
         {

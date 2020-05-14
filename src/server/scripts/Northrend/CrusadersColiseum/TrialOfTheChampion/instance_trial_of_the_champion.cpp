@@ -126,23 +126,23 @@ public:
                     break;
 
                 // Grand Champion Minions:
-                case NPC_ORGRIMMAR_MINION: 
+                case NPC_ORGRIMMAR_MINION:
                     if( TeamIdInInstance == TEAM_HORDE )
                         creature->UpdateEntry(NPC_STORMWIND_MINION);
                     break;
-                case NPC_SILVERMOON_MINION: 
+                case NPC_SILVERMOON_MINION:
                     if( TeamIdInInstance == TEAM_HORDE )
                         creature->UpdateEntry(NPC_GNOMEREGAN_MINION);
                     break;
-                case NPC_THUNDER_BLUFF_MINION: 
+                case NPC_THUNDER_BLUFF_MINION:
                     if( TeamIdInInstance == TEAM_HORDE )
                         creature->UpdateEntry(NPC_EXODAR_MINION);
                     break;
-                case NPC_SENJIN_MINION: 
+                case NPC_SENJIN_MINION:
                     if( TeamIdInInstance == TEAM_HORDE )
                         creature->UpdateEntry(NPC_DARNASSUS_MINION);
                     break;
-                case NPC_UNDERCITY_MINION: 
+                case NPC_UNDERCITY_MINION:
                     if( TeamIdInInstance == TEAM_HORDE )
                         creature->UpdateEntry(NPC_IRONFORGE_MINION);
                     break;
@@ -743,7 +743,7 @@ public:
                     }
 
             }
-            
+
             if (!shortver)
                 if( Creature* announcer = instance->GetCreature(NPC_AnnouncerGUID) )
                 {
@@ -1002,7 +1002,7 @@ public:
                                 announcer->AI()->Talk(TEXT_CHEER_PALETRESS_2);
                             }
                         }
-                            
+
                         for( int8 i = 0; i < 3; ++i )
                         {
                             Position pos(SpawnPosition);
@@ -1076,8 +1076,8 @@ public:
                     }
                     break;
                 case EVENT_ARGENT_CHALLENGE_MOVE_FORWARD:
-                    {
                     if (Creature* boss = instance->GetCreature(NPC_ArgentChampionGUID))
+                    {
                         boss->GetMotionMaster()->MovePoint(0, 746.881f, 635.263f, 411.7f);
                         events.ScheduleEvent(EVENT_ARGENT_CHALLENGE_ATTACK, 3000);
                         events.PopEvent();
@@ -1152,8 +1152,8 @@ public:
                                             bk->ToCreature()->SetReactState(REACT_PASSIVE);
                                     }
 
-                                    announcer->SetFacingToObject(bk_vehicle);
-                                    announcer->AI()->Talk(TEXT_BK_RAFTERS);
+                                announcer->SetFacingToObject(bk_vehicle);
+                                announcer->AI()->Talk(TEXT_BK_RAFTERS);
                             }
                         events.PopEvent();
                     }
@@ -1240,7 +1240,7 @@ public:
                         events.PopEvent();
                     }
                     break;
-            }           
+            }
         }
 
         bool CheckAchievementCriteriaMeet(uint32 criteria_id, Player const*  /*source*/, Unit const*  /*target*/, uint32  /*miscvalue1*/)

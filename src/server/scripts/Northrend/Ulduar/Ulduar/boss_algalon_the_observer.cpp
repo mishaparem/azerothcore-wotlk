@@ -1404,6 +1404,7 @@ class achievement_algalon_he_feeds_on_your_tears : public AchievementCriteriaScr
     public:
         achievement_algalon_he_feeds_on_your_tears() : AchievementCriteriaScript("achievement_algalon_he_feeds_on_your_tears") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*, Unit* target /*Algalon*/)
         {
             return target && target->GetAI()->GetData(DATA_HAS_FED_ON_TEARS);
@@ -1415,6 +1416,7 @@ class achievement_algalon_herald_of_the_titans : public AchievementCriteriaScrip
     public:
         achievement_algalon_herald_of_the_titans() : AchievementCriteriaScript("achievement_algalon_herald_of_the_titans") { }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player*, Unit* target /*Algalon*/)
         {
             return target && target->GetAI()->GetData(DATA_HERALD_OF_THE_TITANS);

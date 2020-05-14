@@ -193,6 +193,7 @@ class achievement_less_rabi : public AchievementCriteriaScript
         {
         }
 
+        using AchievementCriteriaScript::OnCheck;
         bool OnCheck(Player* /*player*/, Unit* target)
         {
             return target && target->GetDisplayId() == target->GetNativeDisplayId();
